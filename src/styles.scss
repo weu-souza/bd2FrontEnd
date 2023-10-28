@@ -1,0 +1,29 @@
+
+//resetar css
+
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+input[type=number], input[type=number]:focus {
+  -moz-appearance: textfield;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

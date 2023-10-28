@@ -1,0 +1,21 @@
+.header-container {
+  border-bottom: 1px solid #D2CEC5;
+  padding: 20px;
+
+  .header-menu {
+    display: flex;
+
+    a {
+      padding: 10px;
+      font-weight: bold;
+      color: #737373;
+    }
+
+    .active {
+      border-bottom: 1px solid #737373;
+    }
+  }
+}
+
+
+
