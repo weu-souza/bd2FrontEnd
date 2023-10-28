@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Resultado} from "../model/resultado";
+import { Resultado} from "../model/resultado";
+import {catchError, Observable, throwError} from "rxjs";
+import {ComparacaoService} from "../service/comparacao.service";
 
 
 @Component({
@@ -8,14 +10,25 @@ import {Resultado} from "../model/resultado";
   styleUrls: ['./resultado.component.scss']
 })
 export class ResultadoComponent implements OnInit {
-  resultado: Resultado[] = []
+  // @ts-ignore
+  resultado: Observable<Resultado[]>;
+  Resultados: Resultado[] = [];
   dialog: boolean = false;
+  id: number = 0;
 
-  constructor() {
+  constructor(private resultadoService: ComparacaoService,) {
   }
 
   ngOnInit(): void {
+    this.findAll();
   }
+
+  findAll() {
+    this.resultadoService.getAllResultado().subscribe(res => {
+      this.Resultados = res;
+    });
+  }
+
 
   abrirDialog() {
     this.dialog = true;
@@ -28,4 +41,6 @@ export class ResultadoComponent implements OnInit {
   deletar() {
 
   }
+
+  protected readonly Resultado = Resultado;
 }

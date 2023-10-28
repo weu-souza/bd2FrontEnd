@@ -11,41 +11,26 @@
 
 
 </dialog>
-
 <section class="tabela-container">
   <table>
     <thead>
     <tr class="thead-container">
-      <th class="conteudo">nome</th>
-      <th class="conteudo">descrição</th>
-      <th class="conteudo">processador</th>
-      <th class="conteudo">placa de video</th>
-      <th class="conteudo">ram</th>
-      <th class="conteudo">total</th>
-      <th class="conteudo"></th>
-      <th class="conteudo"></th>
-      <th class="conteudo"></th>
+      <td class="conteudo">nome</td>
+      <td class="conteudo">total</td>
+      <td class="conteudo"></td>
+      <td class="conteudo"></td>
+
+
     </tr>
     </thead>
-    <tbody id="table-boddy">
-    <tr class="resultado-container">
-      <td class="resultado">nome</td>
-      <td class="resultado">descrição</td>
-      <td class="resultado"> processador</td>
-      <td class="resultado">placa de video</td>
-      <td class="resultado">ram</td>
-      <td class="resultado">total</td>
+    <tbody>
+    <tr class="resultado-container" *ngFor="let resultados of Resultados">
+      <td class="resultado">{{resultados.nome}}</td>
+      <td class="resultado">{{resultados.resultado}}</td>
       <td><a class="btn" routerLink="/atualizar-comparacao"><i class="fa-solid fa-pen-to-square"></i></a></td>
       <td><a class="btn" (click)="abrirDialog()"><i class="fa-solid fa-xmark"></i></a></td>
     </tr>
     </tbody>
-    <tfoot>
-    <tr class="resultado-container">
-      <th class="resultado">melhor avaliação</th>
-
-      <td class="resultado" id="contar" colspan="5">0</td>
-    </tr>
-    </tfoot>
   </table>
 
 </section>

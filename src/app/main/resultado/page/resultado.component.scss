@@ -5,21 +5,28 @@
 
 
   table {
+width: 100%;
+    .btn-container{
+      display: flex;
+
+      padding: 20px;
+    }
     th {
-      padding: 20px 10px;
+      padding: 20px 5px;
     }
 
     td {
-      padding: 30px;
+      padding: 20px;
+      justify-content: center;
     }
 
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
     border-radius: 9px;
 
     .btn {
-
+      margin-right: 14px;
       background: #737373;
-      padding: 10px;
+      padding: 14px;
       border-radius: 10px;
       cursor: pointer;
 
@@ -30,19 +37,24 @@
 
     .thead-container {
       border-bottom: 1px solid rgba(115, 115, 115, 0.25);
-
+      display: grid;
+      grid-template-columns: 1fr 1fr 122px 100px;
       .conteudo {
         color: #737373;
         font-weight: bold;
         font-size: 20px;
+
       }
     }
 
     .resultado-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto auto;
       .resultado {
         color: #737373;
         font-weight: bold;
         font-size: 14px;
+
       }
     }
 
