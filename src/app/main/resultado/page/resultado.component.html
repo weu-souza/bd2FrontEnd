@@ -1,3 +1,17 @@
+<dialog [open]="dialog" class="dialog-container jello-horizontal">
+
+  <div class="dialog-titulo__container">
+    <h1>Deseja excluir?</h1>
+  </div>
+
+  <div class="button-dialog__container">
+    <button (click)="deletar()">ok</button>
+    <button (click)="fecharDialog()">cancelar</button>
+  </div>
+
+
+</dialog>
+
 <section class="tabela-container">
   <table>
     <thead>
@@ -21,10 +35,19 @@
       <td class="resultado">placa de video</td>
       <td class="resultado">ram</td>
       <td class="resultado">total</td>
-      <td> <a class="btn" routerLink="/atualizar-comparacao"><i class="fa-solid fa-pen-to-square"></i></a></td>
-      <td> <a class="btn"><i class="fa-solid fa-xmark"></i></a></td>
+      <td><a class="btn" routerLink="/atualizar-comparacao"><i class="fa-solid fa-pen-to-square"></i></a></td>
+      <td><a class="btn" (click)="abrirDialog()"><i class="fa-solid fa-xmark"></i></a></td>
     </tr>
     </tbody>
+    <tfoot>
+    <tr class="resultado-container">
+      <th class="resultado">melhor avaliação</th>
+
+      <td class="resultado" id="contar" colspan="5">0</td>
+    </tr>
+    </tfoot>
   </table>
 
 </section>
+
+

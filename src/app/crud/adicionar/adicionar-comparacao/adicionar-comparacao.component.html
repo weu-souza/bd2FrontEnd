@@ -3,24 +3,87 @@
     <div class="titulo-add">
       <h1>Adicionar Comparação</h1>
     </div>
-    <div class="formulario">
+    <div class="formulario" [formGroup]="addComputador">
       <div>
         <label for="processador">processador</label>
         <div class="input-container">
-          <input type="text" id="processador" placeholder="digite a nota">
-          <input type="text"  placeholder="digite o peso">
+          <input type="number" id="processador" placeholder="digite a nota" formControlName="processadorNota"
+                 [ngClass]="{'invalid': addComputador.controls['processadorNota'].invalid &&
+           (addComputador.controls['processadorNota'].touched || addComputador.controls['processadorNota'].dirty), 'valid':addComputador.controls['processadorNota'].valid} "
+                 [class.valid]="addComputador.controls['processadorNota'].valid"
+                 [class.invalid]="addComputador.controls['processadorNota'].invalid &&
+           (addComputador.controls['processadorNota'].touched || addComputador.controls['processadorNota'].dirty)">
+          <span *ngIf="addComputador.controls['processadorNota'].invalid &&
+           (addComputador.controls['processadorNota'].touched || addComputador.controls['processadorNota'].dirty)">
+          <small class="error-message" *ngIf="addComputador.controls['processadorNota']">
+            Esse campo não pode estar vazio ou  ter números menores que 1 e maiores que 5
+          </small>
+      </span>
+          <input type="number" placeholder="digite o peso" formControlName="processadorPeso" [ngClass]="{'invalid': addComputador.controls['processadorPeso'].invalid &&
+           (addComputador.controls['processadorPeso'].touched || addComputador.controls['processadorPeso'].dirty), 'valid':addComputador.controls['processadorPeso'].valid} "
+                 [class.valid]="addComputador.controls['processadorPeso'].valid"
+                 [class.invalid]="addComputador.controls['processadorPeso'].invalid &&
+           (addComputador.controls['processadorPeso'].touched || addComputador.controls['processadorPeso'].dirty)">
+          <span *ngIf="addComputador.controls['processadorPeso'].invalid &&
+           (addComputador.controls['processadorPeso'].touched || addComputador.controls['processadorPeso'].dirty)">
+          <small class="error-message" *ngIf="addComputador.controls['processadorPeso']">
+            Esse campo não pode estar vazio ou  ter números menores que 1 e maiores que 3
+          </small>
+      </span>
         </div>
       </div>
       <div>
         <label for="video">placa de video</label>
-        <div class="input-container"><input type="text" id="video" placeholder="digite a nota">
-          <input type="text"  placeholder="digite a peso"></div>
+        <div class="input-container">
+          <input type="number" id="video" placeholder="digite a nota" formControlName="placaNota" [ngClass]="{'invalid': addComputador.controls['placaNota'].invalid &&
+           (addComputador.controls['placaNota'].touched || addComputador.controls['placaNota'].dirty), 'valid':addComputador.controls['placaNota'].valid} "
+                 [class.valid]="addComputador.controls['placaNota'].valid"
+                 [class.invalid]="addComputador.controls['placaNota'].invalid &&
+           (addComputador.controls['placaNota'].touched || addComputador.controls['placaNota'].dirty)">
+          <span *ngIf="addComputador.controls['placaNota'].invalid &&
+           (addComputador.controls['placaNota'].touched || addComputador.controls['placaNota'].dirty)">
+          <small class="error-message" *ngIf="addComputador.controls['placaNota']">
+            Esse campo não pode estar vazio ou  ter números menores que 1 e maiores que 5
+          </small>
+      </span>
+          <input type="number" placeholder="digite a peso" formControlName="placaPeso" [ngClass]="{'invalid': addComputador.controls['placaPeso'].invalid &&
+           (addComputador.controls['placaPeso'].touched || addComputador.controls['placaPeso'].dirty), 'valid':addComputador.controls['placaPeso'].valid} "
+                 [class.valid]="addComputador.controls['placaPeso'].valid"
+                 [class.invalid]="addComputador.controls['placaPeso'].invalid &&
+           (addComputador.controls['placaPeso'].touched || addComputador.controls['placaPeso'].dirty)">
+          <span *ngIf="addComputador.controls['placaPeso'].invalid &&
+           (addComputador.controls['placaPeso'].touched || addComputador.controls['placaPeso'].dirty)">
+          <small class="error-message" *ngIf="addComputador.controls['placaPeso']">
+           Esse campo não pode estar vazio ou  ter números menores que 1 e maiores que 3
+          </small>
+      </span>
+        </div>
       </div>
       <div>
         <label for="ram">memoria ram</label>
         <div class="input-container">
-          <input type="text" id="ram" placeholder="digite a nota">
-          <input type="text"  placeholder="digite a peso">
+          <input type="number" id="ram" placeholder="digite a nota" formControlName="ramNota" [ngClass]="{'invalid': addComputador.controls['ramNota'].invalid &&
+           (addComputador.controls['ramNota'].touched || addComputador.controls['ramNota'].dirty), 'valid':addComputador.controls['ramNota'].valid} "
+                 [class.valid]="addComputador.controls['ramNota'].valid"
+                 [class.invalid]="addComputador.controls['ramNota'].invalid &&
+           (addComputador.controls['ramNota'].touched || addComputador.controls['ramNota'].dirty)">
+          <span *ngIf="addComputador.controls['ramNota'].invalid &&
+           (addComputador.controls['ramNota'].touched || addComputador.controls['ramNota'].dirty)">
+          <small class="error-message" *ngIf="addComputador.controls['ramNota']">
+           Esse campo não pode estar vazio ou  ter números menores que 1 e maiores que 5
+          </small>
+      </span>
+          <input type="number" placeholder="digite a peso" formControlName="ramPeso" [ngClass]="{'invalid': addComputador.controls['ramPeso'].invalid &&
+           (addComputador.controls['ramPeso'].touched || addComputador.controls['ramPeso'].dirty), 'valid':addComputador.controls['ramPeso'].valid} "
+                 [class.valid]="addComputador.controls['ramPeso'].valid"
+                 [class.invalid]="addComputador.controls['ramPeso'].invalid &&
+           (addComputador.controls['ramPeso'].touched || addComputador.controls['ramPeso'].dirty)">
+          <span *ngIf="addComputador.controls['ramPeso'].invalid &&
+           (addComputador.controls['ramPeso'].touched || addComputador.controls['ramPeso'].dirty)">
+          <small class="error-message" *ngIf="addComputador.controls['ramPeso']">
+            Esse campo não pode estar vazio ou  ter números menores que 1 e maiores que 3
+          </small>
+      </span>
         </div>
       </div>
       <div class="button-container">

@@ -1,19 +1,50 @@
+<dialog [open]="dialog" class="dialog-container jello-horizontal">
+
+  <div class="dialog-titulo__container">
+    <h1>{{dialogMsg}}</h1>
+  </div>
+
+  <div class="button-dialog__container">
+    <button (click)="fecharDialog()">ok</button>
+  </div>
+</dialog>
+
 <section class="adicionar-container">
   <div class="card-add">
     <div class="titulo-add">
       <h1>Atualizar computador</h1>
     </div>
-    <div class="formulario">
+    <div class="formulario" [formGroup]="addComputador">
       <div>
         <label for="nome">nome</label>
-        <input type="text" id="nome" placeholder="digite seu nome">
+        <input type="text" id="nome" placeholder="digite seu nome" formControlName="nome" [ngClass]="{'invalid': addComputador.controls['nome'].invalid &&
+           (addComputador.controls['nome'].touched || addComputador.controls['nome'].dirty), 'valid':addComputador.controls['nome'].valid} "
+               [class.valid]="addComputador.controls['nome'].valid"
+               [class.invalid]="addComputador.controls['nome'].invalid &&
+           (addComputador.controls['nome'].touched || addComputador.controls['nome'].dirty)">
+        <span *ngIf="addComputador.controls['nome'].invalid &&
+           (addComputador.controls['nome'].touched || addComputador.controls['nome'].dirty)">
+          <small class="error-message" *ngIf="addComputador.controls['nome'].hasError('required')">
+            Esse campo precisa ser preenchido.
+          </small>
+      </span>
       </div>
       <div>
         <label for="descricao">descricao</label>
-        <input type="text" id="descricao" placeholder="digite a descrição">
+        <input type="text" id="descricao" placeholder="digite a descrição" formControlName="descricao" [ngClass]="{'invalid': addComputador.controls['descricao'].invalid &&
+           (addComputador.controls['descricao'].touched || addComputador.controls['descricao'].dirty), 'valid':addComputador.controls['descricao'].valid} "
+               [class.valid]="addComputador.controls['descricao'].valid"
+               [class.invalid]="addComputador.controls['descricao'].invalid &&
+           (addComputador.controls['descricao'].touched || addComputador.controls['descricao'].dirty)">
+        <span *ngIf="addComputador.controls['descricao'].invalid &&
+           (addComputador.controls['descricao'].touched || addComputador.controls['descricao'].dirty)">
+          <small class="error-message" *ngIf="addComputador.controls['descricao'].hasError('required')">
+            Esse campo precisa ser preenchido.
+          </small>
+      </span>
       </div>
       <div class="button-container">
-        <button class="button-add">ATUALIZAR</button>
+        <button class="button-add" (click)="atualizar()">ATUALIZAR</button>
       </div>
 
 

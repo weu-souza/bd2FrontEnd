@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Resultado} from "./model/resultado";
+import {Resultado} from "../model/resultado";
 
 
 @Component({
@@ -9,6 +9,7 @@ import {Resultado} from "./model/resultado";
 })
 export class ResultadoComponent implements OnInit {
   resultado: Resultado[] = []
+  dialog: boolean = false;
 
   constructor() {
   }
@@ -16,4 +17,15 @@ export class ResultadoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  abrirDialog() {
+    this.dialog = true;
+  }
+
+  fecharDialog() {
+    this.dialog = false;
+  }
+
+  deletar() {
+
+  }
 }
