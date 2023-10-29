@@ -1,26 +1,67 @@
+<dialog [open]="dialog" class="dialog-container jello-horizontal">
+
+  <div class="dialog-titulo__container">
+    <h1>{{dialogMsg}}</h1>
+  </div>
+
+  <div class="button-dialog__container">
+    <button (click)="fecharDialog()">ok</button>
+  </div>
+</dialog>
+
+
 <section class="adicionar-container">
   <div class="card-add">
     <div class="titulo-add">
       <h1>Atualizar Comparação</h1>
     </div>
-    <div class="formulario">
+    <div class="formulario" [formGroup]="addComputador">
       <div>
         <label for="processador">processador</label>
         <div class="input-container">
-          <input type="text" id="processador" placeholder="digite a nota">
-          <input type="text"  placeholder="digite o peso">
+          <input type="text" id="processador" placeholder="digite a nota"
+                 formControlName="processadorNota"
+                 [ngClass]="{'invalid': addComputador.controls['processadorNota'].invalid &&
+           (addComputador.controls['processadorNota'].touched || addComputador.controls['processadorNota'].dirty), 'valid':addComputador.controls['processadorNota'].valid} "
+                 [class.valid]="addComputador.controls['processadorNota'].valid"
+                 [class.invalid]="addComputador.controls['processadorNota'].invalid &&
+           (addComputador.controls['processadorNota'].touched || addComputador.controls['processadorNota'].dirty)">
+          <input type="text" placeholder="digite o peso" formControlName="processadorPeso" [ngClass]="{'invalid': addComputador.controls['processadorPeso'].invalid &&
+           (addComputador.controls['processadorPeso'].touched || addComputador.controls['processadorPeso'].dirty), 'valid':addComputador.controls['processadorPeso'].valid} "
+                 [class.valid]="addComputador.controls['processadorPeso'].valid"
+                 [class.invalid]="addComputador.controls['processadorPeso'].invalid &&
+           (addComputador.controls['processadorPeso'].touched || addComputador.controls['processadorPeso'].dirty)">
         </div>
       </div>
       <div>
         <label for="video">placa de video</label>
-        <div class="input-container"><input type="text" id="video" placeholder="digite a nota">
-          <input type="text"  placeholder="digite a peso"></div>
+        <div class="input-container">
+          <input type="text" id="video" placeholder="digite a nota" formControlName="placaDeVideoNota" [ngClass]="{'invalid': addComputador.controls['placaDeVideoNota'].invalid &&
+           (addComputador.controls['placaDeVideoNota'].touched || addComputador.controls['placaDeVideoNota'].dirty), 'valid':addComputador.controls['placaDeVideoNota'].valid} "
+                 [class.valid]="addComputador.controls['placaDeVideoNota'].valid"
+                 [class.invalid]="addComputador.controls['placaDeVideoNota'].invalid &&
+           (addComputador.controls['placaDeVideoNota'].touched || addComputador.controls['placaDeVideoNota'].dirty)">
+          <input type="text" placeholder="digite a peso" formControlName="placaDeVideoPeso" [ngClass]="{'invalid': addComputador.controls['placaDeVideoPeso'].invalid &&
+           (addComputador.controls['placaDeVideoPeso'].touched || addComputador.controls['placaDeVideoPeso'].dirty), 'valid':addComputador.controls['placaDeVideoPeso'].valid} "
+                 [class.valid]="addComputador.controls['placaDeVideoPeso'].valid"
+                 [class.invalid]="addComputador.controls['placaDeVideoPeso'].invalid &&
+           (addComputador.controls['placaDeVideoPeso'].touched || addComputador.controls['placaDeVideoPeso'].dirty)">
+        </div>
       </div>
+
       <div>
         <label for="ram">memoria ram</label>
         <div class="input-container">
-          <input type="text" id="ram" placeholder="digite a nota">
-          <input type="text"  placeholder="digite a peso">
+          <input type="text" id="ram" placeholder="digite a nota" formControlName="memoriaRamNota" [ngClass]="{'invalid': addComputador.controls['memoriaRamNota'].invalid &&
+           (addComputador.controls['memoriaRamNota'].touched || addComputador.controls['memoriaRamNota'].dirty), 'valid':addComputador.controls['memoriaRamNota'].valid} "
+                 [class.valid]="addComputador.controls['memoriaRamNota'].valid"
+                 [class.invalid]="addComputador.controls['memoriaRamNota'].invalid &&
+           (addComputador.controls['memoriaRamNota'].touched || addComputador.controls['memoriaRamNota'].dirty)">
+          <input type="text" placeholder="digite a peso" formControlName="memoriaRamPeso" [ngClass]="{'invalid': addComputador.controls['memoriaRamPeso'].invalid &&
+           (addComputador.controls['memoriaRamPeso'].touched || addComputador.controls['memoriaRamPeso'].dirty), 'valid':addComputador.controls['memoriaRamPeso'].valid} "
+                 [class.valid]="addComputador.controls['memoriaRamPeso'].valid"
+                 [class.invalid]="addComputador.controls['memoriaRamPeso'].invalid &&
+           (addComputador.controls['memoriaRamPeso'].touched || addComputador.controls['memoriaRamPeso'].dirty)">
         </div>
       </div>
       <div class="button-container">

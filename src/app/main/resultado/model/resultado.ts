@@ -1,30 +1,19 @@
 export class Resultado {
-  private _id!: number;
-  private _nome!: string;
-  private _resultado!: number;
+  id!: number;
+  nome!: string;
+  resultado!: number;
+}
 
+export class Comparacao {
+  id!: number;
+  processadorPeso!: number;
+  placaDeVideoPeso!: number;
 
-  get id(): number {
-    return this._id;
-  }
+  memoriaRamPeso!: number;
 
-  set id(value: number) {
-    this._id = value;
-  }
+  processadorNota!: number;
 
-  get nome(): string {
-    return this._nome;
-  }
+  placaDeVideoNota!: number;
 
-  set nome(value: string) {
-    this._nome = value;
-  }
-
-  get resultado(): number {
-    return this._resultado;
-  }
-
-  set resultado(value: number) {
-    this._resultado = value;
-  }
+  memoriaRamNota!: number;
 }

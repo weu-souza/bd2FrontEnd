@@ -42,6 +42,10 @@ export class AdicionarComponent implements OnInit {
       this.dialog = true;
     }
 
+    setTimeout(() => {
+      this.dialog = false;
+    }, 2000);
+
   }
 
   fecharDialog() {

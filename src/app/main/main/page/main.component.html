@@ -30,7 +30,7 @@
       <p class="dado">{{computadorr.nome}}</p>
       <p class="dado">{{computadorr.descricao}}</p>
       <div class="btn-container">
-        <a class="btn" routerLink="/adicionar-comparacao"><i class="fa-solid fa-plus"></i></a>
+        <a class="btn" routerLink="/adicionar-comparacao/{{computadorr.id}}"><i class="fa-solid fa-plus"></i></a>
         <a class="btn" (click)="abrirDialog(computadorr.id)"><i class="fa-solid fa-xmark"></i></a>
         <a class="btn" (click)="atualizar(computadorr.id)"><i class="fa-solid fa-pen-to-square"></i></a>
       </div>

@@ -10,10 +10,10 @@ import {AtualizarcomparacaoComponent} from "./crud/atualizar/atualizar-comparaca
 const routes: Routes = [
   {path: 'inicio', component: MainComponent},
   {path: 'adicionar', component: AdicionarComponent},
-  {path: 'adicionar-comparacao', component: AdicionarComparacaoComponent},
+  {path: 'adicionar-comparacao/:id', component: AdicionarComparacaoComponent},
   {path: 'resultado', component: ResultadoComponent},
   {path: 'atualizar-computador/:id', component: AtualizarComputadorComponent},
-  {path: 'atualizar-comparacao', component: AtualizarcomparacaoComponent},
+  {path: 'atualizar-comparacao/:id', component: AtualizarcomparacaoComponent},
   {
     path: '', redirectTo: 'inicio', pathMatch: 'full'
   },

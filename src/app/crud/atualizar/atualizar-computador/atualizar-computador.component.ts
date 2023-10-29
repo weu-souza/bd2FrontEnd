@@ -49,5 +49,8 @@ export class AtualizarComputadorComponent implements OnInit {
       this.dialogMsg = 'Altere o formulario!!!';
       this.dialog = true;
     }
+    setTimeout(() => {
+      this.dialog = false;
+    }, 2000);
   }
 }

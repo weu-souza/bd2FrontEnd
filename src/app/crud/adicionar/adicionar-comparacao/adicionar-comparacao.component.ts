@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Comparacao} from "../../../main/resultado/model/resultado";
+import {ComparacaoService} from "../../../main/resultado/service/comparacao.service";
 
 @Component({
   selector: 'app-adicionar-comparacao',
@@ -10,8 +12,12 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class AdicionarComparacaoComponent implements OnInit {
   // @ts-ignore
   addComputador: FormGroup;
+  comparar: Comparacao = new Comparacao();
+  dialog: boolean = false;
+  dialogMsg: string = '';
+  id: number = 0
 
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(private router: Router, private fb: FormBuilder, private comparacaoService: ComparacaoService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -22,15 +28,31 @@ export class AdicionarComparacaoComponent implements OnInit {
     this.addComputador = this.fb.group({
       processadorNota: ['', [Validators.required, Validators.min(1), Validators.max(5)]],
       processadorPeso: ['', [Validators.required, Validators.min(1), Validators.max(3)]],
-      placaNota: ['', [Validators.required, Validators.min(1), Validators.max(5)]],
-      placaPeso: ['', [Validators.required, Validators.min(1), Validators.max(3)]],
-      ramPeso: ['', [Validators.required, Validators.min(1), Validators.max(3)]],
-      ramNota: ['', [Validators.required, Validators.min(1), Validators.max(5)]],
-
+      placaDeVideoNota: ['', [Validators.required, Validators.min(1), Validators.max(5)]],
+      placaDeVideoPeso: ['', [Validators.required, Validators.min(1), Validators.max(3)]],
+      memoriaRamPeso: ['', [Validators.required, Validators.min(1), Validators.max(3)]],
+      memoriaRamNota: ['', [Validators.required, Validators.min(1), Validators.max(5)]],
     })
   }
 
   adicionar() {
-    this.router.navigate(['/resultado'])
+    if (this.addComputador.dirty && this.addComputador.valid) {
+      this.comparar = Object.assign({}, this.comparar, this.addComputador.value);
+      this.id = Number(this.route.snapshot.paramMap.get('id'));
+      this.comparacaoService.postResultado(this.id, this.comparar).subscribe(res => {
+        this.dialogMsg = 'Enviado com sucesso!!!';
+        this.dialog = true;
+      })
+    } else {
+      this.dialogMsg = 'Preencha o formulario!!!';
+      this.dialog = true;
+    }
+    setTimeout( () => {
+      this.dialog = false;
+    }, 2000);
+  }
+
+  fecharDialog() {
+    this.dialog = false
   }
 }
