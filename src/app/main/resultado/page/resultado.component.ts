@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { Resultado} from "../model/resultado";
+import {Resultado} from "../model/resultado";
 import {catchError, Observable, throwError} from "rxjs";
 import {ComparacaoService} from "../service/comparacao.service";
 
@@ -14,7 +14,9 @@ export class ResultadoComponent implements OnInit {
   resultado: Observable<Resultado[]>;
   Resultados: Resultado[] = [];
   dialog: boolean = false;
-  id: number = 0;
+  id: number | undefined;
+  dialogMsg: string = '';
+  dialog2: boolean = false;
 
   constructor(private resultadoService: ComparacaoService,) {
   }
@@ -30,16 +32,27 @@ export class ResultadoComponent implements OnInit {
   }
 
 
-  abrirDialog() {
+  abrirDialog(id: number) {
     this.dialog = true;
+    this.id = id;
   }
 
   fecharDialog() {
     this.dialog = false;
+    this.dialog2 = false;
   }
 
   deletar() {
-
+    this.resultadoService.deleteResultado(this.id).subscribe(res => {
+      this.dialogMsg = 'deletado com sucesso!!!';
+      this.dialog2 = true;
+      this.dialog = false;
+      this.findAll();
+    }, error => {
+      this.dialogMsg = 'Erro ao deletar!!!';
+      this.dialog2 = true;
+      this.dialog = false;
+    })
   }
 
   protected readonly Resultado = Resultado;

@@ -29,7 +29,7 @@ export class ComparacaoService {
     return this.http.post<Comparacao>(url, comparacao);
   }
 
-  deleteResultado(id: number) {
+  deleteResultado(id: number | undefined) {
     const url = `${this.baseUrl}/comparar/${id}`;
     return this.http.delete<void>(url);
   }
