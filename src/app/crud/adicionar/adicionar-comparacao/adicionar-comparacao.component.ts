@@ -47,12 +47,13 @@ export class AdicionarComparacaoComponent implements OnInit {
       this.dialogMsg = 'Preencha o formulario!!!';
       this.dialog = true;
     }
-    setTimeout( () => {
+    setTimeout(() => {
       this.dialog = false;
     }, 2000);
   }
 
   fecharDialog() {
     this.dialog = false
+    this.router.navigate(['/resultado'])
   }
 }

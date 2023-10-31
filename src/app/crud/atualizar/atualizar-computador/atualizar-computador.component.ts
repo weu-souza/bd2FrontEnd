@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ComputadorService} from "../../../main/main/service/computador.service";
 import {Computador} from "../../../main/main/model/computador";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-atualizar-computador',
@@ -16,7 +16,7 @@ export class AtualizarComputadorComponent implements OnInit {
   dialog: boolean = false;
   dialogMsg: string = '';
 
-  constructor(private fb: FormBuilder, private computadorService: ComputadorService, private route: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private computadorService: ComputadorService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -36,6 +36,7 @@ export class AtualizarComputadorComponent implements OnInit {
 
   fecharDialog() {
     this.dialog = false;
+    this.router.navigate(['/inicio'])
   }
 
   atualizar() {

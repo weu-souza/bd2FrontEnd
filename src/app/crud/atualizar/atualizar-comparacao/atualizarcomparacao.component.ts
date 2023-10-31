@@ -12,6 +12,7 @@ import {ComparacaoService} from "../../../main/resultado/service/comparacao.serv
 export class AtualizarcomparacaoComponent implements OnInit {
   // @ts-ignore
   addComputador: FormGroup;
+
   comparar: Comparacao = new Comparacao();
   dialog: boolean = false;
   dialogMsg: string = '';
@@ -57,5 +58,6 @@ export class AtualizarcomparacaoComponent implements OnInit {
 
   fecharDialog() {
     this.dialog = false
+    this.router.navigate(['/resultado'])
   }
 }

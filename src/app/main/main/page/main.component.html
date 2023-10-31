@@ -26,8 +26,7 @@
   <main class="main-cointainer">
     <div class="card-container" *ngFor="let computadorr of computadors">
 
-      <h2 class="titulo">Computador</h2>
-      <p class="dado">{{computadorr.nome}}</p>
+      <h2 class="titulo">{{computadorr.nome}}</h2>
       <p class="dado">{{computadorr.descricao}}</p>
       <div class="btn-container">
         <a class="btn" routerLink="/adicionar-comparacao/{{computadorr.id}}"><i class="fa-solid fa-plus"></i></a>

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ComputadorService} from "../../../main/main/service/computador.service";
 import {Computador} from "../../../main/main/model/computador";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-adicionar',
@@ -16,7 +17,7 @@ export class AdicionarComponent implements OnInit {
   dialog: boolean = false;
   dialogMsg = '';
 
-  constructor(private fb: FormBuilder, private computadorService: ComputadorService) {
+  constructor(private fb: FormBuilder, private computadorService: ComputadorService, private router:Router) {
   }
 
   ngOnInit(): void {
@@ -50,5 +51,6 @@ export class AdicionarComponent implements OnInit {
 
   fecharDialog() {
     this.dialog = false;
+    this.router.navigate(['/inicio'])
   }
 }
