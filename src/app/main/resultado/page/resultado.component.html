@@ -28,7 +28,7 @@
     <thead>
     <tr class="thead-container">
       <td class="conteudo">nome</td>
-      <td class="conteudo">total</td>
+      <td class="conteudo">Resultado</td>
       <td class="conteudo"></td>
       <td class="conteudo"></td>
 
@@ -36,9 +36,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr class="resultado-container" *ngFor="let resultados of Resultados">
-      <td class="resultado">{{resultados.nome}}</td>
-      <td class="resultado">{{resultados.resultado}}</td>
+    <tr class="resultado-container" *ngFor="let resultados of Resultados" [ngClass]="{'valid': resultados.resultado === maiorV}">
+      <td class="resultado" [ngClass]="{'valid': resultados.resultado === maiorV}">{{resultados.nome}}</td>
+      <td class="resultado" [ngClass]="{'valid': resultados.resultado === maiorV}">{{resultados.resultado}}</td>
       <td><a class="btn" routerLink="/atualizar-comparacao/{{resultados.id}}"><i class="fa-solid fa-pen-to-square"></i></a>
       </td>
       <td><a class="btn" (click)="abrirDialog(resultados.id)"><i class="fa-solid fa-xmark"></i></a></td>

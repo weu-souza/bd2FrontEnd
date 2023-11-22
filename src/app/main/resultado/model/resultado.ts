@@ -17,3 +17,7 @@ export class Comparacao {
 
   memoriaRamNota!: number;
 }
+
+export class MaiorValor {
+  melhorAvaliacao!: number;
+}

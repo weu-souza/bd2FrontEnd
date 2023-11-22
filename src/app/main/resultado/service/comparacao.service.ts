@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
-import {Comparacao, Resultado} from "../model/resultado";
+import {Comparacao, MaiorValor, Resultado} from "../model/resultado";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,11 @@ export class ComparacaoService {
   getAllResultado(): Observable<Resultado[]> {
     const url = `${this.baseUrl}/resultado`;
     return this.http.get<Resultado[]>(url)
+  }
+
+  getMaiorValor(): Observable<MaiorValor[]> {
+    const url = `${this.baseUrl}/maior-valor`;
+    return this.http.get<MaiorValor[]>(url);
   }
 
   findById(id: number) {

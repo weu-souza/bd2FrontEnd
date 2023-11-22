@@ -12,6 +12,7 @@ import {AtualizarcomparacaoComponent} from './crud/atualizar/atualizar-comparaca
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     AdicionarComparacaoComponent,
     AtualizarComputadorComponent,
     AtualizarcomparacaoComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
